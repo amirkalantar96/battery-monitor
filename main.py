@@ -51,8 +51,8 @@ def monitor_battery() -> None:
         # Low battery warning - notify when unplugged and below threshold
         if percent <= LOW_BATTERY and not plugged and not notified_low:
             send_notification(
-                "⚠️ باتری کم است",
-                f"شارژ باتری به {percent:.0f}٪ رسیده. لطفاً شارژر را وصل کنید.",
+                "⚠️ Battery Low",
+                f"Battery charge has reached {percent:.0f}%. Please plug in the charger.",
                 urgency="critical"
             )
             notified_low = True
@@ -64,8 +64,8 @@ def monitor_battery() -> None:
         # High battery warning - notify when plugged and above threshold
         if percent >= HIGH_BATTERY and plugged and not notified_high:
             send_notification(
-                "🔋 شارژ کافی است",
-                f"شارژ باتری به {percent:.0f}٪ رسیده. می‌توانید شارژر را جدا کنید.",
+                "🔋 Battery Sufficient",
+                f"Battery charge has reached {percent:.0f}%. You can unplug the charger.",
                 urgency="normal"
             )
             notified_high = True
